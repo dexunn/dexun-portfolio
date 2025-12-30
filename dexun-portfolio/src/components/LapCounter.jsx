@@ -11,47 +11,41 @@ function LapCounter() {
   const [currentLap, setCurrentLap] = useState(1);
 
   useEffect(() => {
-    const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visible.length > 0) {
-          const id = visible[0].target.id;
-          const found = laps.find((l) => l.id === id);
-          if (found) setCurrentLap(found.lap);
-        }
-      },
-      {
-        threshold: [0.2, 0.35, 0.5, 0.65],
-        rootMargin: "-25% 0px -25% 0px",
-      }
-    );
-
-    laps.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) io.observe(el);
-    });
-
-    // ✅ fallback: bottom of page = lap 04
     const onScroll = () => {
-      const nearBottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 4;
+      const viewportCenter = window.innerHeight / 2;
 
-      if (nearBottom) setCurrentLap(4);
+      let closest = null;
+      let closestDistance = Infinity;
+
+      laps.forEach(({ id, lap }) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        const rect = el.getBoundingClientRect();
+        const distance = Math.abs(rect.top - viewportCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closest = lap;
+        }
+      });
+
+      if (closest !== null) {
+        setCurrentLap(closest);
+      }
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    // run once on mount
+    onScroll();
 
     return () => {
-      io.disconnect();
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
     };
   }, []);
-
-  const lapText = String(currentLap).padStart(2, "0");
 
   return (
     <div
@@ -68,7 +62,7 @@ function LapCounter() {
         pointerEvents: "none",
       }}
     >
-      LAP {lapText} / 04
+      LAP {String(currentLap).padStart(2, "0")} / 04
     </div>
   );
 }
