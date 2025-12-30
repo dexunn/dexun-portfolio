@@ -27,7 +27,7 @@ function Projects() {
           "Docker",
           "Constraint Programming",
         ],
-        github: "https://github.com/seanpohjj/dsa3101-2510-game-02",
+        github: "https://github.com/dexunn/dsa3101-2510-game-02",
       },
       {
         title: "ML Smart Portfolio Rebalancer",
