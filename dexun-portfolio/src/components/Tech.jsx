@@ -53,7 +53,7 @@ function Tech() {
         style={{
           position: "relative",
           padding: "6rem 0",
-          borderTop: "1px solid #1f2933",
+          borderTop: "1px solid #1f2933", // ✅ divider from Experience → Tech
         }}
       >
         <style>{`
@@ -74,7 +74,9 @@ function Tech() {
           .techCard:hover {
             transform: translateY(-6px);
             border-color: rgba(0,210,190,0.35);
-            box-shadow: 0 14px 40px rgba(0,0,0,0.35), 0 0 24px rgba(0,210,190,0.12);
+            box-shadow:
+              0 14px 40px rgba(0,0,0,0.35),
+              0 0 24px rgba(0,210,190,0.12);
           }
   
           .techHeader {
@@ -93,7 +95,7 @@ function Tech() {
             border: 1px solid #1f2933;
             color: #9aa4af;
             background: rgba(255,255,255,0.02);
-            transition: all 160ms ease;
+            transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, color 160ms ease;
             cursor: default;
           }
   
@@ -104,7 +106,7 @@ function Tech() {
             transform: translateY(-2px);
           }
   
-          /* NEW: timing line */
+          /* timing line (matches Projects) */
           .timingLine {
             height: 3px;
             width: 64px;
@@ -114,11 +116,12 @@ function Tech() {
               rgba(0,210,190,0.15)
             );
             border-radius: 2px;
-            margin-bottom: 2.25rem;
+            margin-bottom: 3rem;
           }
   
           @media (prefers-reduced-motion: reduce) {
-            .techCard, .pill {
+            .techCard,
+            .pill {
               transition: none !important;
               transform: none !important;
             }
@@ -127,13 +130,13 @@ function Tech() {
   
         {/* LAP subtitle */}
         <p
-            style={{
+          style={{
             color: "#00d2be",
             letterSpacing: "0.14em",
             fontSize: "0.75rem",
             fontFamily: "monospace",
             marginBottom: "0.4rem",
-            }}
+          }}
         >
           LAP 03 · BOX BOX → TOOLING CHECK
         </p>
@@ -150,7 +153,13 @@ function Tech() {
             <div className="techCard" key={idx}>
               <div className="techHeader">{group.category}</div>
   
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "0.5rem",
+                }}
+              >
                 {group.items.map((item, i) => (
                   <span className="pill" key={i}>
                     {item}

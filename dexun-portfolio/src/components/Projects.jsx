@@ -7,15 +7,18 @@ function Projects() {
         sectors: [
           {
             label: "S1 · MODELLING",
-            text: "Collaborated on designing and implementing a CP-SAT optimisation model using Google OR-Tools to balance playtime, skill distribution, and rest constraints.",
+            text:
+              "Collaborated on designing and implementing a CP-SAT optimisation model using Google OR-Tools to balance playtime, skill distribution, and rest constraints.",
           },
           {
             label: "S2 · BACKEND",
-            text: "Collaborated on backend architecture and helped expose optimisation logic via a Flask REST API.",
+            text:
+              "Collaborated on backend architecture and helped expose optimisation logic via a Flask REST API.",
           },
           {
             label: "S3 · PIPELINE",
-            text: "Worked with the team to build validated data pipelines and containerised services using Docker.",
+            text:
+              "Worked with the team to build validated data pipelines and containerised services using Docker.",
           },
         ],
         outcome:
@@ -27,7 +30,7 @@ function Projects() {
           "Docker",
           "Constraint Programming",
         ],
-        private: true, // 🔒 explicitly private
+        private: true,
       },
       {
         title: "ML Smart Portfolio Rebalancer",
@@ -36,15 +39,18 @@ function Projects() {
         sectors: [
           {
             label: "S1 · FORECASTING",
-            text: "Collaborated on implementing an EGARCH + XGBoost hybrid model for volatility forecasting.",
+            text:
+              "Collaborated on implementing an EGARCH + XGBoost hybrid model for volatility forecasting.",
           },
           {
             label: "S2 · SIMULATION",
-            text: "Worked with the team to build Monte Carlo simulations evaluating asset allocations and rebalancing strategies.",
+            text:
+              "Worked with the team to build Monte Carlo simulations evaluating asset allocations and rebalancing strategies.",
           },
           {
             label: "S3 · VISUALISATION",
-            text: "Contributed to a Streamlit dashboard for interactive portfolio analysis and experimentation.",
+            text:
+              "Contributed to a Streamlit dashboard for interactive portfolio analysis and experimentation.",
           },
         ],
         outcome:
@@ -65,15 +71,18 @@ function Projects() {
         sectors: [
           {
             label: "S1 · NLP",
-            text: "Implemented a transformer-based toxicity classifier using Hugging Face and PyTorch.",
+            text:
+              "Implemented a transformer-based toxicity classifier using Hugging Face and PyTorch.",
           },
           {
             label: "S2 · API",
-            text: "Exposed model predictions via a FastAPI REST API and containerised the service.",
+            text:
+              "Exposed model predictions via a FastAPI REST API and containerised the service.",
           },
           {
             label: "S3 · INGESTION",
-            text: "Ingested live Reddit comments in real time using PRAW.",
+            text:
+              "Ingested live Reddit comments in real time using PRAW.",
           },
         ],
         outcome:
@@ -90,7 +99,14 @@ function Projects() {
     ];
   
     return (
-      <section id="projects" style={{ padding: "6rem 0" }}>
+      <section
+        id="projects"
+        style={{
+          position: "relative",
+          padding: "6rem 0",
+          borderTop: "1px solid #1f2933", // ✅ FIX: separator added
+        }}
+      >
         <style>{`
           .projectsGrid {
             display: grid;
@@ -164,7 +180,6 @@ function Projects() {
             font-size: 0.9rem;
           }
   
-          /* 🔥 Premium source link */
           .sourceLink {
             display: inline-flex;
             align-items: center;
@@ -191,6 +206,19 @@ function Projects() {
             opacity: 0.7;
             font-style: italic;
           }
+  
+          /* timing line under header */
+          .timingLine {
+            height: 3px;
+            width: 64px;
+            background: linear-gradient(
+              to right,
+              #00d2be,
+              rgba(0,210,190,0.15)
+            );
+            border-radius: 2px;
+            margin-bottom: 3rem;
+          }
         `}</style>
   
         <p
@@ -205,7 +233,12 @@ function Projects() {
           LAP 04 · DEVELOPMENT STINTS
         </p>
   
-        <h2 style={{ fontSize: "2rem", marginBottom: "3rem" }}>Projects</h2>
+        <h2 style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>
+          Projects
+        </h2>
+  
+        {/* matches Tech section rhythm */}
+        <div className="timingLine" />
   
         <div className="projectsGrid">
           {projects.map((p, i) => (
@@ -227,7 +260,14 @@ function Projects() {
                 <strong>Δ Outcome:</strong> {p.outcome}
               </div>
   
-              <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", margin: "1.4rem 0" }}>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "0.5rem",
+                  flexWrap: "wrap",
+                  margin: "1.4rem 0",
+                }}
+              >
                 {p.tech.map((t, k) => (
                   <span className="techPill" key={k}>{t}</span>
                 ))}
@@ -235,7 +275,7 @@ function Projects() {
   
               {p.private ? (
                 <span className="sourceLinkPrivate">
-                  🔒 Source available upon request
+                  🔒 Private repository — happy to discuss implementation
                 </span>
               ) : (
                 <a
