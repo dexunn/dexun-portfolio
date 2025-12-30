@@ -1,51 +1,14 @@
-import { useEffect, useState } from "react";
+import useActiveSection from "../hooks/useActiveSection";
 
 function Navbar() {
+  const { activeId } = useActiveSection();
+
   const items = [
     { label: "ABOUT", id: "about", lap: "01" },
     { label: "EXPERIENCE", id: "experience", lap: "02" },
     { label: "TECH", id: "tech", lap: "03" },
     { label: "PROJECTS", id: "projects", lap: "04" },
   ];
-
-  const [active, setActive] = useState("about");
-
-  useEffect(() => {
-    const sections = items
-      .map((i) => document.getElementById(i.id))
-      .filter(Boolean);
-
-    const onScroll = () => {
-      const viewportCenter = window.innerHeight / 2;
-
-      let closestSection = null;
-      let minDistance = Infinity;
-
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        const sectionCenter = rect.top + rect.height / 2;
-        const distance = Math.abs(sectionCenter - viewportCenter);
-
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestSection = section.id;
-        }
-      });
-
-      if (closestSection) setActive(closestSection);
-
-      const nearBottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 5;
-
-      if (nearBottom) setActive("projects");
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll(); 
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <nav
@@ -125,7 +88,7 @@ function Navbar() {
         style={{
           maxWidth: "1100px",
           margin: "0 auto",
-          padding: "1rem 1.5rem",
+          padding: "1rem 1.25rem",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -144,12 +107,14 @@ function Navbar() {
           DEXUN<span style={{ color: "#00d2be" }}>.HAN</span>
         </div>
 
-        <div style={{ display: "flex", gap: "1.75rem" }}>
+        <div style={{ display: "flex", gap: "1.5rem" }}>
           {items.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
-              className={`navLink ${active === item.id ? "active" : ""}`}
+              className={`navLink ${
+                activeId === item.id ? "active" : ""
+              }`}
             >
               <span style={{ color: "#6b7280", marginRight: "0.35rem" }}>
                 {item.lap}
