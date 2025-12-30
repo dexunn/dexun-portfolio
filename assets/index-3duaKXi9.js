@@ -134,7 +134,9 @@ Error generating stack: `+e.message+`
           .techCard:hover {
             transform: translateY(-6px);
             border-color: rgba(0,210,190,0.35);
-            box-shadow: 0 14px 40px rgba(0,0,0,0.35), 0 0 24px rgba(0,210,190,0.12);
+            box-shadow:
+              0 14px 40px rgba(0,0,0,0.35),
+              0 0 24px rgba(0,210,190,0.12);
           }
   
           .techHeader {
@@ -153,7 +155,7 @@ Error generating stack: `+e.message+`
             border: 1px solid #1f2933;
             color: #9aa4af;
             background: rgba(255,255,255,0.02);
-            transition: all 160ms ease;
+            transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, color 160ms ease;
             cursor: default;
           }
   
@@ -164,7 +166,7 @@ Error generating stack: `+e.message+`
             transform: translateY(-2px);
           }
   
-          /* NEW: timing line */
+          /* timing line (matches Projects) */
           .timingLine {
             height: 3px;
             width: 64px;
@@ -174,16 +176,17 @@ Error generating stack: `+e.message+`
               rgba(0,210,190,0.15)
             );
             border-radius: 2px;
-            margin-bottom: 2.25rem;
+            margin-bottom: 3rem;
           }
   
           @media (prefers-reduced-motion: reduce) {
-            .techCard, .pill {
+            .techCard,
+            .pill {
               transition: none !important;
               transform: none !important;
             }
           }
-        `}),E.jsx("p",{style:{color:"#00d2be",letterSpacing:"0.14em",fontSize:"0.75rem",fontFamily:"monospace",marginBottom:"0.4rem"},children:"LAP 03 · BOX BOX → TOOLING CHECK"}),E.jsx("h2",{style:{fontSize:"2rem",marginBottom:"0.75rem"},children:"Tech Stack"}),E.jsx("div",{className:"timingLine"}),E.jsx("div",{className:"techGrid",children:g.map((O,M)=>E.jsxs("div",{className:"techCard",children:[E.jsx("div",{className:"techHeader",children:O.category}),E.jsx("div",{style:{display:"flex",flexWrap:"wrap",gap:"0.5rem"},children:O.items.map((r,_)=>E.jsx("span",{className:"pill",children:r},_))})]},M))})]})}function _1(){const g=[{title:"Volleyball Game Optimisation System",meta:"Group Project",type:"BACKEND · OPTIMISATION",sectors:[{label:"S1 · MODELLING",text:"Collaborated on designing and implementing a CP-SAT optimisation model using Google OR-Tools to balance playtime, skill distribution, and rest constraints."},{label:"S2 · BACKEND",text:"Collaborated on backend architecture and helped expose optimisation logic via a Flask REST API."},{label:"S3 · PIPELINE",text:"Worked with the team to build validated data pipelines and containerised services using Docker."}],outcome:"Significantly reduced infeasible schedules compared to heuristic approaches.",tech:["Python","Google OR-Tools","Flask","Docker","Constraint Programming"],private:!0},{title:"ML Smart Portfolio Rebalancer",meta:"Group Project",type:"MACHINE LEARNING · FINANCE",sectors:[{label:"S1 · FORECASTING",text:"Collaborated on implementing an EGARCH + XGBoost hybrid model for volatility forecasting."},{label:"S2 · SIMULATION",text:"Worked with the team to build Monte Carlo simulations evaluating asset allocations and rebalancing strategies."},{label:"S3 · VISUALISATION",text:"Contributed to a Streamlit dashboard for interactive portfolio analysis and experimentation."}],outcome:"End-to-end ML pipeline from volatility forecasting to allocation decisions.",tech:["Python","XGBoost","EGARCH","Monte Carlo Simulation","Streamlit"],github:"https://github.com/dexunn/nusfintech-portfolio-optimiser"},{title:"Reddit Toxicity Monitoring Bot",meta:"Personal Project",type:"NLP · BACKEND API",sectors:[{label:"S1 · NLP",text:"Implemented a transformer-based toxicity classifier using Hugging Face and PyTorch."},{label:"S2 · API",text:"Exposed model predictions via a FastAPI REST API and containerised the service."},{label:"S3 · INGESTION",text:"Ingested live Reddit comments in real time using PRAW."}],outcome:"Enabled real-time detection of toxic content via a deployable NLP API.",tech:["Python","FastAPI","Transformers","PyTorch","Docker"],github:"https://github.com/dexunn/reddit-bot"}];return E.jsxs("section",{id:"projects",style:{padding:"6rem 0"},children:[E.jsx("style",{children:`
+        `}),E.jsx("p",{style:{color:"#00d2be",letterSpacing:"0.14em",fontSize:"0.75rem",fontFamily:"monospace",marginBottom:"0.4rem"},children:"LAP 03 · BOX BOX → TOOLING CHECK"}),E.jsx("h2",{style:{fontSize:"2rem",marginBottom:"0.75rem"},children:"Tech Stack"}),E.jsx("div",{className:"timingLine"}),E.jsx("div",{className:"techGrid",children:g.map((O,M)=>E.jsxs("div",{className:"techCard",children:[E.jsx("div",{className:"techHeader",children:O.category}),E.jsx("div",{style:{display:"flex",flexWrap:"wrap",gap:"0.5rem"},children:O.items.map((r,_)=>E.jsx("span",{className:"pill",children:r},_))})]},M))})]})}function _1(){const g=[{title:"Volleyball Game Optimisation System",meta:"Group Project",type:"BACKEND · OPTIMISATION",sectors:[{label:"S1 · MODELLING",text:"Collaborated on designing and implementing a CP-SAT optimisation model using Google OR-Tools to balance playtime, skill distribution, and rest constraints."},{label:"S2 · BACKEND",text:"Collaborated on backend architecture and helped expose optimisation logic via a Flask REST API."},{label:"S3 · PIPELINE",text:"Worked with the team to build validated data pipelines and containerised services using Docker."}],outcome:"Significantly reduced infeasible schedules compared to heuristic approaches.",tech:["Python","Google OR-Tools","Flask","Docker","Constraint Programming"],private:!0},{title:"ML Smart Portfolio Rebalancer",meta:"Group Project",type:"MACHINE LEARNING · FINANCE",sectors:[{label:"S1 · FORECASTING",text:"Collaborated on implementing an EGARCH + XGBoost hybrid model for volatility forecasting."},{label:"S2 · SIMULATION",text:"Worked with the team to build Monte Carlo simulations evaluating asset allocations and rebalancing strategies."},{label:"S3 · VISUALISATION",text:"Contributed to a Streamlit dashboard for interactive portfolio analysis and experimentation."}],outcome:"End-to-end ML pipeline from volatility forecasting to allocation decisions.",tech:["Python","XGBoost","EGARCH","Monte Carlo Simulation","Streamlit"],github:"https://github.com/dexunn/nusfintech-portfolio-optimiser"},{title:"Reddit Toxicity Monitoring Bot",meta:"Personal Project",type:"NLP · BACKEND API",sectors:[{label:"S1 · NLP",text:"Implemented a transformer-based toxicity classifier using Hugging Face and PyTorch."},{label:"S2 · API",text:"Exposed model predictions via a FastAPI REST API and containerised the service."},{label:"S3 · INGESTION",text:"Ingested live Reddit comments in real time using PRAW."}],outcome:"Enabled real-time detection of toxic content via a deployable NLP API.",tech:["Python","FastAPI","Transformers","PyTorch","Docker"],github:"https://github.com/dexunn/reddit-bot"}];return E.jsxs("section",{id:"projects",style:{position:"relative",padding:"6rem 0",borderTop:"1px solid #1f2933"},children:[E.jsx("style",{children:`
           .projectsGrid {
             display: grid;
             gap: 3.2rem;
@@ -256,7 +259,6 @@ Error generating stack: `+e.message+`
             font-size: 0.9rem;
           }
   
-          /* 🔥 Premium source link */
           .sourceLink {
             display: inline-flex;
             align-items: center;
@@ -283,7 +285,20 @@ Error generating stack: `+e.message+`
             opacity: 0.7;
             font-style: italic;
           }
-        `}),E.jsx("p",{style:{color:"#00d2be",letterSpacing:"0.14em",fontSize:"0.75rem",fontFamily:"monospace",marginBottom:"0.4rem"},children:"LAP 04 · DEVELOPMENT STINTS"}),E.jsx("h2",{style:{fontSize:"2rem",marginBottom:"3rem"},children:"Projects"}),E.jsx("div",{className:"projectsGrid",children:g.map((O,M)=>E.jsxs("div",{className:"projectCard",children:[E.jsxs("div",{className:"telemetry",children:["PROJECT · ",O.type]}),E.jsx("h3",{style:{fontSize:"1.35rem"},children:O.title}),E.jsx("p",{style:{color:"#6b7280",fontSize:"0.8rem"},children:O.meta}),O.sectors.map((r,_)=>E.jsxs("div",{className:"sector",children:[E.jsx("div",{className:"sectorLabel",children:r.label}),E.jsx("div",{className:"sectorBar"}),E.jsx("div",{className:"sectorText",children:r.text})]},_)),E.jsxs("div",{className:"outcome",children:[E.jsx("strong",{children:"Δ Outcome:"})," ",O.outcome]}),E.jsx("div",{style:{display:"flex",gap:"0.5rem",flexWrap:"wrap",margin:"1.4rem 0"},children:O.tech.map((r,_)=>E.jsx("span",{className:"techPill",children:r},_))}),O.private?E.jsx("span",{className:"sourceLinkPrivate",children:"🔒 Source available upon request"}):E.jsx("a",{className:"sourceLink",href:O.github,target:"_blank",rel:"noreferrer",children:"View source →"})]},M))})]})}const C1=[{id:"about",lap:1},{id:"experience",lap:2},{id:"tech",lap:3},{id:"projects",lap:4}];function _r(){const[g,O]=pu.useState("about"),[M,r]=pu.useState(1);return pu.useEffect(()=>{const _=()=>{const X=window.innerHeight*.5;let el=null,vl=1/0;C1.forEach(({id:T,lap:k})=>{const H=document.getElementById(T);if(!H)return;const fl=H.getBoundingClientRect(),Hl=fl.top+fl.height/2,Dl=Math.abs(Hl-X);Dl<vl&&(vl=Dl,el={id:T,lap:k})}),el&&(O(el.id),r(el.lap)),window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-6&&(O("projects"),r(4))};return window.addEventListener("scroll",_,{passive:!0}),window.addEventListener("resize",_),_(),()=>{window.removeEventListener("scroll",_),window.removeEventListener("resize",_)}},[]),{activeId:g,activeLap:M}}function j1(){const{activeId:g}=_r(),O=[{label:"ABOUT",id:"about",lap:"01"},{label:"EXPERIENCE",id:"experience",lap:"02"},{label:"TECH",id:"tech",lap:"03"},{label:"PROJECTS",id:"projects",lap:"04"}];return E.jsxs("nav",{style:{position:"sticky",top:0,zIndex:60,background:`
+  
+          /* timing line under header */
+          .timingLine {
+            height: 3px;
+            width: 64px;
+            background: linear-gradient(
+              to right,
+              #00d2be,
+              rgba(0,210,190,0.15)
+            );
+            border-radius: 2px;
+            margin-bottom: 3rem;
+          }
+        `}),E.jsx("p",{style:{color:"#00d2be",letterSpacing:"0.14em",fontSize:"0.75rem",fontFamily:"monospace",marginBottom:"0.4rem"},children:"LAP 04 · DEVELOPMENT STINTS"}),E.jsx("h2",{style:{fontSize:"2rem",marginBottom:"0.75rem"},children:"Projects"}),E.jsx("div",{className:"timingLine"}),E.jsx("div",{className:"projectsGrid",children:g.map((O,M)=>E.jsxs("div",{className:"projectCard",children:[E.jsxs("div",{className:"telemetry",children:["PROJECT · ",O.type]}),E.jsx("h3",{style:{fontSize:"1.35rem"},children:O.title}),E.jsx("p",{style:{color:"#6b7280",fontSize:"0.8rem"},children:O.meta}),O.sectors.map((r,_)=>E.jsxs("div",{className:"sector",children:[E.jsx("div",{className:"sectorLabel",children:r.label}),E.jsx("div",{className:"sectorBar"}),E.jsx("div",{className:"sectorText",children:r.text})]},_)),E.jsxs("div",{className:"outcome",children:[E.jsx("strong",{children:"Δ Outcome:"})," ",O.outcome]}),E.jsx("div",{style:{display:"flex",gap:"0.5rem",flexWrap:"wrap",margin:"1.4rem 0"},children:O.tech.map((r,_)=>E.jsx("span",{className:"techPill",children:r},_))}),O.private?E.jsx("span",{className:"sourceLinkPrivate",children:"🔒 Private repository — happy to discuss implementation"}):E.jsx("a",{className:"sourceLink",href:O.github,target:"_blank",rel:"noreferrer",children:"View source →"})]},M))})]})}const C1=[{id:"about",lap:1},{id:"experience",lap:2},{id:"tech",lap:3},{id:"projects",lap:4}];function _r(){const[g,O]=pu.useState("about"),[M,r]=pu.useState(1);return pu.useEffect(()=>{const _=()=>{const X=window.innerHeight*.5;let el=null,vl=1/0;C1.forEach(({id:T,lap:k})=>{const H=document.getElementById(T);if(!H)return;const fl=H.getBoundingClientRect(),Hl=fl.top+fl.height/2,Dl=Math.abs(Hl-X);Dl<vl&&(vl=Dl,el={id:T,lap:k})}),el&&(O(el.id),r(el.lap)),window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-6&&(O("projects"),r(4))};return window.addEventListener("scroll",_,{passive:!0}),window.addEventListener("resize",_),_(),()=>{window.removeEventListener("scroll",_),window.removeEventListener("resize",_)}},[]),{activeId:g,activeLap:M}}function j1(){const{activeId:g}=_r(),O=[{label:"ABOUT",id:"about",lap:"01"},{label:"EXPERIENCE",id:"experience",lap:"02"},{label:"TECH",id:"tech",lap:"03"},{label:"PROJECTS",id:"projects",lap:"04"}];return E.jsxs("nav",{style:{position:"sticky",top:0,zIndex:60,background:`
           linear-gradient(
             180deg,
             rgba(18,22,27,0.95) 0%,
