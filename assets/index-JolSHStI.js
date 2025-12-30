@@ -268,7 +268,7 @@ Error generating stack: `+e.message+`
           .sourceLink:hover {
             text-decoration: underline;
           }
-        `}),T.jsx("p",{style:{color:"#00d2be",letterSpacing:"0.14em",fontSize:"0.75rem",fontFamily:"monospace",marginBottom:"0.4rem"},children:"LAP 04 · DEVELOPMENT STINTS"}),T.jsx("h2",{style:{fontSize:"2rem",marginBottom:"0.8rem"},children:"Projects"}),T.jsx("div",{style:{height:"2px",width:"72px",background:"linear-gradient(to right, #00d2be, transparent)",borderRadius:"2px",marginBottom:"3rem"}}),T.jsx("div",{className:"projectsGrid",children:g.map((O,M)=>T.jsxs("div",{className:"projectCard",children:[T.jsxs("div",{className:"telemetry",children:["PROJECT · ",O.type]}),T.jsx("h3",{style:{fontSize:"1.35rem"},children:O.title}),T.jsx("p",{style:{color:"#6b7280",fontSize:"0.8rem"},children:O.meta}),O.sectors.map((s,N)=>T.jsxs("div",{className:"sector",children:[T.jsx("div",{className:"sectorLabel",children:s.label}),T.jsx("div",{className:"sectorBar"}),T.jsx("div",{className:"sectorText",children:s.text})]},N)),T.jsxs("div",{className:"outcome",children:[T.jsx("strong",{children:"Δ Outcome:"})," ",O.outcome]}),T.jsx("div",{style:{display:"flex",gap:"0.5rem",flexWrap:"wrap",margin:"1.4rem 0"},children:O.tech.map((s,N)=>T.jsx("span",{className:"techPill",children:s},N))}),T.jsx("a",{className:"sourceLink",href:O.github,target:"_blank",rel:"noreferrer",children:"View source →"})]},M))})]})}function Ny(){const g=[{label:"ABOUT",id:"about",lap:"01"},{label:"EXPERIENCE",id:"experience",lap:"02"},{label:"TECH",id:"tech",lap:"03"},{label:"PROJECTS",id:"projects",lap:"04"}],[O,M]=Me.useState("about");return Me.useEffect(()=>{const s=new IntersectionObserver(N=>{const R=N.filter(k=>k.isIntersecting).sort((k,sl)=>sl.intersectionRatio-k.intersectionRatio);R.length>0&&M(R[0].target.id)},{threshold:[.25,.45,.65],rootMargin:"-30% 0px -40% 0px"});return g.forEach(N=>{const R=document.getElementById(N.id);R&&s.observe(R)}),()=>s.disconnect()},[]),T.jsxs("nav",{style:{position:"sticky",top:0,zIndex:60,background:`
+        `}),T.jsx("p",{style:{color:"#00d2be",letterSpacing:"0.14em",fontSize:"0.75rem",fontFamily:"monospace",marginBottom:"0.4rem"},children:"LAP 04 · DEVELOPMENT STINTS"}),T.jsx("h2",{style:{fontSize:"2rem",marginBottom:"0.8rem"},children:"Projects"}),T.jsx("div",{style:{height:"2px",width:"72px",background:"linear-gradient(to right, #00d2be, transparent)",borderRadius:"2px",marginBottom:"3rem"}}),T.jsx("div",{className:"projectsGrid",children:g.map((O,M)=>T.jsxs("div",{className:"projectCard",children:[T.jsxs("div",{className:"telemetry",children:["PROJECT · ",O.type]}),T.jsx("h3",{style:{fontSize:"1.35rem"},children:O.title}),T.jsx("p",{style:{color:"#6b7280",fontSize:"0.8rem"},children:O.meta}),O.sectors.map((s,N)=>T.jsxs("div",{className:"sector",children:[T.jsx("div",{className:"sectorLabel",children:s.label}),T.jsx("div",{className:"sectorBar"}),T.jsx("div",{className:"sectorText",children:s.text})]},N)),T.jsxs("div",{className:"outcome",children:[T.jsx("strong",{children:"Δ Outcome:"})," ",O.outcome]}),T.jsx("div",{style:{display:"flex",gap:"0.5rem",flexWrap:"wrap",margin:"1.4rem 0"},children:O.tech.map((s,N)=>T.jsx("span",{className:"techPill",children:s},N))}),T.jsx("a",{className:"sourceLink",href:O.github,target:"_blank",rel:"noreferrer",children:"View source →"})]},M))})]})}function Ny(){const g=[{label:"ABOUT",id:"about",lap:"01"},{label:"EXPERIENCE",id:"experience",lap:"02"},{label:"TECH",id:"tech",lap:"03"},{label:"PROJECTS",id:"projects",lap:"04"}],[O,M]=Me.useState("about");return Me.useEffect(()=>{const s=new IntersectionObserver(N=>{const R=N.filter(k=>k.isIntersecting).sort((k,sl)=>Math.abs(k.boundingClientRect.top)-Math.abs(sl.boundingClientRect.top));R.length>0&&M(R[0].target.id)},{threshold:.01,rootMargin:"-35% 0px -60% 0px"});return g.forEach(({id:N})=>{const R=document.getElementById(N);R&&s.observe(R)}),()=>s.disconnect()},[]),T.jsxs("nav",{style:{position:"sticky",top:0,zIndex:60,background:`
           linear-gradient(
             180deg,
             rgba(18,22,27,0.95) 0%,
@@ -276,7 +276,7 @@ Error generating stack: `+e.message+`
             rgba(18,22,27,0.55) 85%,
             rgba(18,22,27,0.0) 100%
           )
-        `,backdropFilter:"blur(8px)",borderBottom:"none"},children:[T.jsx("style",{children:`
+        `,backdropFilter:"blur(8px)"},children:[T.jsx("style",{children:`
         .navLink {
           position: relative;
           color: #9aa4af;
@@ -285,8 +285,8 @@ Error generating stack: `+e.message+`
           text-decoration: none;
           padding-bottom: 6px;
           font-family: monospace;
-          transition: color 160ms ease, opacity 160ms ease;
-          opacity: 0.65;
+          opacity: 0.6;
+          transition: opacity 160ms ease, color 160ms ease;
         }
 
         .navLink:hover {
@@ -314,7 +314,6 @@ Error generating stack: `+e.message+`
           width: 100%;
         }
 
-        /* soft fade line instead of border */
         .navFade {
           height: 1px;
           background: linear-gradient(
@@ -323,6 +322,5 @@ Error generating stack: `+e.message+`
             rgba(0,210,190,0.35),
             transparent
           );
-          opacity: 0.6;
         }
       `}),T.jsxs("div",{style:{maxWidth:"1100px",margin:"0 auto",padding:"1rem 1.5rem",display:"flex",justifyContent:"space-between",alignItems:"center"},children:[T.jsxs("div",{style:{fontSize:"0.9rem",letterSpacing:"0.06em",color:"#e5e7eb",fontWeight:500},children:["DEXUN",T.jsx("span",{style:{color:"#00d2be"},children:".HAN"})]}),T.jsx("div",{style:{display:"flex",gap:"1.75rem"},children:g.map(s=>T.jsxs("a",{href:`#${s.id}`,className:`navLink ${O===s.id?"active":""}`,children:[T.jsx("span",{style:{color:"#6b7280",marginRight:"0.35rem"},children:s.lap}),s.label]},s.id))})]}),T.jsx("div",{className:"navFade"})]})}const Ud=[{id:"about",lap:1},{id:"experience",lap:2},{id:"tech",lap:3},{id:"projects",lap:4}];function Cy(){const[g,O]=Me.useState(1);Me.useEffect(()=>{const s=new IntersectionObserver(R=>{const k=R.filter(sl=>sl.isIntersecting).sort((sl,B)=>B.intersectionRatio-sl.intersectionRatio);if(k.length>0){const sl=k[0].target.id,B=Ud.find(z=>z.id===sl);B&&O(B.lap)}},{threshold:[.2,.35,.5,.65],rootMargin:"-25% 0px -25% 0px"});Ud.forEach(({id:R})=>{const k=document.getElementById(R);k&&s.observe(k)});const N=()=>{window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4&&O(4)};return window.addEventListener("scroll",N,{passive:!0}),()=>{s.disconnect(),window.removeEventListener("scroll",N)}},[]);const M=String(g).padStart(2,"0");return T.jsxs("div",{style:{position:"fixed",top:"5.5rem",right:"1.5rem",fontFamily:"monospace",fontSize:"0.7rem",letterSpacing:"0.2em",color:"#00d2be",opacity:.65,zIndex:40,pointerEvents:"none"},children:["LAP ",M," / 04"]})}function jy(){return T.jsxs(T.Fragment,{children:[T.jsx(Ny,{}),T.jsx(Cy,{}),T.jsx("main",{style:{minHeight:"100vh",display:"flex",justifyContent:"center"},children:T.jsxs("div",{style:{width:"100%",maxWidth:"1100px",padding:"0 2rem"},children:[T.jsx(zy,{}),T.jsx(Ty,{}),T.jsx(Uy,{}),T.jsx(By,{}),T.jsx(_y,{})]})})]})}ry.createRoot(document.getElementById("root")).render(T.jsx(Me.StrictMode,{children:T.jsx(jy,{})}));
