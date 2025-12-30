@@ -11,32 +11,40 @@ function Navbar() {
   const [active, setActive] = useState("about");
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort(
-            (a, b) =>
-              Math.abs(a.boundingClientRect.top) -
-              Math.abs(b.boundingClientRect.top)
-          );
+    const sections = items
+      .map((i) => document.getElementById(i.id))
+      .filter(Boolean);
 
-        if (visible.length > 0) {
-          setActive(visible[0].target.id);
+    const onScroll = () => {
+      const viewportCenter = window.innerHeight / 2;
+
+      let closestSection = null;
+      let minDistance = Infinity;
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const sectionCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(sectionCenter - viewportCenter);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestSection = section.id;
         }
-      },
-      {
-        threshold: 0.01,
-        rootMargin: "-35% 0px -60% 0px",
-      }
-    );
+      });
 
-    items.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+      if (closestSection) setActive(closestSection);
 
-    return () => observer.disconnect();
+      const nearBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 5;
+
+      if (nearBottom) setActive("projects");
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); 
+
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -66,7 +74,7 @@ function Navbar() {
           text-decoration: none;
           padding-bottom: 6px;
           font-family: monospace;
-          opacity: 0.6;
+          opacity: 0.65;
           transition: opacity 160ms ease, color 160ms ease;
         }
 
@@ -104,6 +112,13 @@ function Navbar() {
             transparent
           );
         }
+
+        @media (max-width: 640px) {
+          .navLink {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+          }
+        }
       `}</style>
 
       <div
@@ -114,6 +129,8 @@ function Navbar() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          flexWrap: "wrap",
+          gap: "0.75rem",
         }}
       >
         <div

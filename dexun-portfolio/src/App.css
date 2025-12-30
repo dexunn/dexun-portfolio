@@ -1,11 +1,9 @@
-/* ========== ROOT LAYOUT ========== */
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2rem; /* horizontal only */
+  padding: 0 2rem; 
 }
 
-/* ========== LOGO (safe to keep) ========== */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -21,7 +19,6 @@
   filter: drop-shadow(0 0 2em rgba(0, 210, 190, 0.6));
 }
 
-/* Optional demo animation (harmless) */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -37,12 +34,10 @@
   }
 }
 
-/* ========== GENERIC CARD (fallback only) ========== */
 .card {
   padding: 2em;
 }
 
-/* ========== DOCS TEXT (can remove later) ========== */
 .read-the-docs {
   color: #888;
 }

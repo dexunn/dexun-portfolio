@@ -5,6 +5,7 @@ import Tech from "./components/Tech";
 import Projects from "./components/Projects";
 import Navbar from "./components/Navbar";
 import LapCounter from "./components/LapCounter";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Experience />
           <Tech />
           <Projects />
+          <Footer />
         </div>
       </main>
     </>
