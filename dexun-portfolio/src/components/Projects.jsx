@@ -27,7 +27,7 @@ function Projects() {
           "Docker",
           "Constraint Programming",
         ],
-        github: "https://github.com/dexunn/dsa3101-2510-game-02",
+        private: true, // 🔒 explicitly private
       },
       {
         title: "ML Smart Portfolio Rebalancer",
@@ -90,10 +90,7 @@ function Projects() {
     ];
   
     return (
-      <section
-        id="projects"
-        style={{ padding: "6rem 0", borderTop: "1px solid #1f2933" }}
-      >
+      <section id="projects" style={{ padding: "6rem 0" }}>
         <style>{`
           .projectsGrid {
             display: grid;
@@ -135,13 +132,11 @@ function Projects() {
   
           .sectorBar {
             height: 2px;
-            width: 100%;
             background: linear-gradient(
               to right,
               #00d2be,
               rgba(0,210,190,0.25)
             );
-            border-radius: 2px;
             margin-bottom: 0.8rem;
             opacity: 0.75;
           }
@@ -169,19 +164,35 @@ function Projects() {
             font-size: 0.9rem;
           }
   
+          /* 🔥 Premium source link */
           .sourceLink {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
             font-size: 0.85rem;
+            font-family: monospace;
+            letter-spacing: 0.08em;
             color: #00d2be;
             text-decoration: none;
-            letter-spacing: 0.08em;
+            opacity: 0.75;
+            transition: opacity 160ms ease, transform 160ms ease;
           }
   
           .sourceLink:hover {
-            text-decoration: underline;
+            opacity: 1;
+            transform: translateX(4px);
+          }
+  
+          .sourceLinkPrivate {
+            font-size: 0.8rem;
+            font-family: monospace;
+            letter-spacing: 0.08em;
+            color: #6b7280;
+            opacity: 0.7;
+            font-style: italic;
           }
         `}</style>
   
-        {/* LAP subtitle */}
         <p
           style={{
             color: "#00d2be",
@@ -194,21 +205,7 @@ function Projects() {
           LAP 04 · DEVELOPMENT STINTS
         </p>
   
-        {/* Title */}
-        <h2 style={{ fontSize: "2rem", marginBottom: "0.8rem" }}>
-          Projects
-        </h2>
-  
-        {/* Timing line */}
-        <div
-          style={{
-            height: "2px",
-            width: "72px",
-            background: "linear-gradient(to right, #00d2be, transparent)",
-            borderRadius: "2px",
-            marginBottom: "3rem",
-          }}
-        />
+        <h2 style={{ fontSize: "2rem", marginBottom: "3rem" }}>Projects</h2>
   
         <div className="projectsGrid">
           {projects.map((p, i) => (
@@ -230,29 +227,26 @@ function Projects() {
                 <strong>Δ Outcome:</strong> {p.outcome}
               </div>
   
-              <div
-                style={{
-                  display: "flex",
-                  gap: "0.5rem",
-                  flexWrap: "wrap",
-                  margin: "1.4rem 0",
-                }}
-              >
+              <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", margin: "1.4rem 0" }}>
                 {p.tech.map((t, k) => (
-                  <span className="techPill" key={k}>
-                    {t}
-                  </span>
+                  <span className="techPill" key={k}>{t}</span>
                 ))}
               </div>
   
-              <a
-                className="sourceLink"
-                href={p.github}
-                target="_blank"
-                rel="noreferrer"
-              >
-                View source →
-              </a>
+              {p.private ? (
+                <span className="sourceLinkPrivate">
+                  🔒 Source available upon request
+                </span>
+              ) : (
+                <a
+                  className="sourceLink"
+                  href={p.github}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View source →
+                </a>
+              )}
             </div>
           ))}
         </div>
