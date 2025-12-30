@@ -6,8 +6,44 @@
 
 html,
 body {
-  background-color: #0b0e11;
+  min-height: 100%;
   color: #e6e6e6;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Ubuntu, sans-serif;
+
+  /* ===== Mercedes Silver / Graphite (Even Lighting) ===== */
+  background:
+    linear-gradient(
+      180deg,
+      #1c2229 0%,
+      #1a2027 25%,
+      #181e25 55%,
+      #151a20 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(220, 225, 230, 0.06),
+      rgba(0, 210, 190, 0.04),
+      rgba(220, 225, 230, 0.06)
+    );
+
+  background-attachment: fixed;
+}
+
+a {
+  color: #9aa4af;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #00d2be;
+}
+
+section {
+  scroll-margin-top: 96px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
