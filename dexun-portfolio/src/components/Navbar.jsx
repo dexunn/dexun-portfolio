@@ -11,28 +11,32 @@ function Navbar() {
   const [active, setActive] = useState("about");
 
   useEffect(() => {
-    const io = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
           .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+          .sort(
+            (a, b) =>
+              Math.abs(a.boundingClientRect.top) -
+              Math.abs(b.boundingClientRect.top)
+          );
 
         if (visible.length > 0) {
           setActive(visible[0].target.id);
         }
       },
       {
-        threshold: [0.25, 0.45, 0.65],
-        rootMargin: "-30% 0px -40% 0px",
+        threshold: 0.01,
+        rootMargin: "-35% 0px -60% 0px",
       }
     );
 
-    items.forEach((item) => {
-      const el = document.getElementById(item.id);
-      if (el) io.observe(el);
+    items.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
     });
 
-    return () => io.disconnect();
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -41,8 +45,6 @@ function Navbar() {
         position: "sticky",
         top: 0,
         zIndex: 60,
-
-        /* 🔥 KEY FIX: integrated gradient, not slab */
         background: `
           linear-gradient(
             180deg,
@@ -53,12 +55,8 @@ function Navbar() {
           )
         `,
         backdropFilter: "blur(8px)",
-
-        /* remove harsh edges */
-        borderBottom: "none",
       }}
     >
-      {/* scoped styles */}
       <style>{`
         .navLink {
           position: relative;
@@ -68,8 +66,8 @@ function Navbar() {
           text-decoration: none;
           padding-bottom: 6px;
           font-family: monospace;
-          transition: color 160ms ease, opacity 160ms ease;
-          opacity: 0.65;
+          opacity: 0.6;
+          transition: opacity 160ms ease, color 160ms ease;
         }
 
         .navLink:hover {
@@ -97,7 +95,6 @@ function Navbar() {
           width: 100%;
         }
 
-        /* soft fade line instead of border */
         .navFade {
           height: 1px;
           background: linear-gradient(
@@ -106,11 +103,9 @@ function Navbar() {
             rgba(0,210,190,0.35),
             transparent
           );
-          opacity: 0.6;
         }
       `}</style>
 
-      {/* inner container */}
       <div
         style={{
           maxWidth: "1100px",
@@ -121,7 +116,6 @@ function Navbar() {
           alignItems: "center",
         }}
       >
-        {/* Callsign */}
         <div
           style={{
             fontSize: "0.9rem",
@@ -133,7 +127,6 @@ function Navbar() {
           DEXUN<span style={{ color: "#00d2be" }}>.HAN</span>
         </div>
 
-        {/* Nav items */}
         <div style={{ display: "flex", gap: "1.75rem" }}>
           {items.map((item) => (
             <a
@@ -150,7 +143,6 @@ function Navbar() {
         </div>
       </div>
 
-      {/* soft bottom fade */}
       <div className="navFade" />
     </nav>
   );
